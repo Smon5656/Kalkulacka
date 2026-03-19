@@ -12,32 +12,54 @@ namespace Kalkulacka
 {
     public partial class Form1 : Form
     {
+        //-----------------------------------------------------------------------------------------------------------
+        //konstruktor
+        //-----------------------------------------------------------------------------------------------------------
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        //-----------------------------------------------------------------------------------------------------------
+        //
+        //rutina zpracuje stisknute cislo, proste zjisti tlacitko a napise do textoveho pole spravne cislo
+        //
+        //-----------------------------------------------------------------------------------------------------------
+        private void btCislo1_Click(object sender, EventArgs e)
+
         {
 
-            txtDisplay.Text = "Ahoj světe";
-            ///do txtdisplay s vlastnosti text mi to napise ahoj svete
-         
-       
-            ///mam to naprogramovat tak, aby policko pak bylo zelene
-            txtDisplay.BackColor = Color.Green;
+            //vsechna tlacitka ted funguji na tomto kvuli efektivite
+            //abych to jako retard nemusel delat pro kazde tlacitko
+            //
+
+            Button MojeTlacitko;
+            MojeTlacitko = (Button)sender;
+
+
+            //vymazani nuly
+            if (txtDisplay.Text == "0") txtDisplay.Text = "";
+
+            //pridavam 1 do toho textboxu
+            //txtDisplay.Text = txtDisplay.Text + "1"; //mohu pouzit i +=
+            //je to pricitani do toho text boxu
+            //vsichni povinne psat komentare
+
+
+            txtDisplay.Text = txtDisplay.Text + MojeTlacitko.Text;
+            //txtDisplay.Text += MojeTlacitko.Text;
+
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        //-----------------------------------------------------------------------------------------------------------
+        //resetovat kalkulacku
+        //-----------------------------------------------------------------------------------------------------------
+        private void btSmazat_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtDisplay_MouseMove(object sender, MouseEventArgs e)
-        {
-            txtDisplay.Text = "";
-            txtDisplay.BackColor = Color.White;
+            //prepsani veskereho textu na disp na 0
+            txtDisplay.Text = "0";
         }
     }
 }
