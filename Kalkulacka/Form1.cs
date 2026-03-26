@@ -22,9 +22,7 @@ namespace Kalkulacka
 
 
         //-----------------------------------------------------------------------------------------------------------
-        //
         //rutina zpracuje stisknute cislo, proste zjisti tlacitko a napise do textoveho pole spravne cislo
-        //
         //-----------------------------------------------------------------------------------------------------------
         private void btCislo1_Click(object sender, EventArgs e)
 
@@ -32,7 +30,6 @@ namespace Kalkulacka
 
             //vsechna tlacitka ted funguji na tomto kvuli efektivite
             //abych to jako retard nemusel delat pro kazde tlacitko
-            //
 
             Button MojeTlacitko;
             MojeTlacitko = (Button)sender;
@@ -46,11 +43,9 @@ namespace Kalkulacka
             //je to pricitani do toho text boxu
             //vsichni povinne psat komentare
 
-
+            // pridani cisla na display
             txtDisplay.Text = txtDisplay.Text + MojeTlacitko.Text;
             //txtDisplay.Text += MojeTlacitko.Text;
-
-
         }
 
         //-----------------------------------------------------------------------------------------------------------
