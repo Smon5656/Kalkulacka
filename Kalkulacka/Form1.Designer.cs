@@ -40,6 +40,11 @@
             this.btCislo3 = new System.Windows.Forms.Button();
             this.btCislo0 = new System.Windows.Forms.Button();
             this.btSmazat = new System.Windows.Forms.Button();
+            this.btPlus = new System.Windows.Forms.Button();
+            this.btMinus = new System.Windows.Forms.Button();
+            this.btKrat = new System.Windows.Forms.Button();
+            this.btRovnaSe = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDisplay
@@ -154,7 +159,7 @@
             // btCislo0
             // 
             this.btCislo0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btCislo0.Location = new System.Drawing.Point(269, 256);
+            this.btCislo0.Location = new System.Drawing.Point(340, 256);
             this.btCislo0.Name = "btCislo0";
             this.btCislo0.Size = new System.Drawing.Size(65, 45);
             this.btCislo0.TabIndex = 11;
@@ -165,7 +170,7 @@
             // btSmazat
             // 
             this.btSmazat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btSmazat.Location = new System.Drawing.Point(411, 256);
+            this.btSmazat.Location = new System.Drawing.Point(269, 256);
             this.btSmazat.Name = "btSmazat";
             this.btSmazat.Size = new System.Drawing.Size(65, 45);
             this.btSmazat.TabIndex = 12;
@@ -173,11 +178,71 @@
             this.btSmazat.UseVisualStyleBackColor = true;
             this.btSmazat.Click += new System.EventHandler(this.btSmazat_Click);
             // 
+            // btPlus
+            // 
+            this.btPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btPlus.Location = new System.Drawing.Point(482, 104);
+            this.btPlus.Name = "btPlus";
+            this.btPlus.Size = new System.Drawing.Size(65, 45);
+            this.btPlus.TabIndex = 13;
+            this.btPlus.Text = "+";
+            this.btPlus.UseVisualStyleBackColor = true;
+            this.btPlus.Click += new System.EventHandler(this.btOperace_Click);
+            // 
+            // btMinus
+            // 
+            this.btMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btMinus.Location = new System.Drawing.Point(482, 155);
+            this.btMinus.Name = "btMinus";
+            this.btMinus.Size = new System.Drawing.Size(65, 45);
+            this.btMinus.TabIndex = 14;
+            this.btMinus.Text = "-";
+            this.btMinus.UseVisualStyleBackColor = true;
+            this.btMinus.Click += new System.EventHandler(this.btOperace_Click);
+            // 
+            // btKrat
+            // 
+            this.btKrat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btKrat.Location = new System.Drawing.Point(482, 205);
+            this.btKrat.Name = "btKrat";
+            this.btKrat.Size = new System.Drawing.Size(65, 45);
+            this.btKrat.TabIndex = 15;
+            this.btKrat.Text = "*";
+            this.btKrat.UseVisualStyleBackColor = true;
+            this.btKrat.Click += new System.EventHandler(this.btOperace_Click);
+            // 
+            // btRovnaSe
+            // 
+            this.btRovnaSe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btRovnaSe.Location = new System.Drawing.Point(411, 256);
+            this.btRovnaSe.Name = "btRovnaSe";
+            this.btRovnaSe.Size = new System.Drawing.Size(65, 45);
+            this.btRovnaSe.TabIndex = 16;
+            this.btRovnaSe.Text = "=";
+            this.btRovnaSe.UseVisualStyleBackColor = true;
+            this.btRovnaSe.Click += new System.EventHandler(this.btOperace_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(482, 256);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 45);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "/";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btOperace_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 454);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btRovnaSe);
+            this.Controls.Add(this.btKrat);
+            this.Controls.Add(this.btMinus);
+            this.Controls.Add(this.btPlus);
             this.Controls.Add(this.btSmazat);
             this.Controls.Add(this.btCislo0);
             this.Controls.Add(this.btCislo3);
@@ -211,6 +276,11 @@
         private System.Windows.Forms.Button btCislo3;
         private System.Windows.Forms.Button btCislo0;
         private System.Windows.Forms.Button btSmazat;
+        private System.Windows.Forms.Button btPlus;
+        private System.Windows.Forms.Button btMinus;
+        private System.Windows.Forms.Button btKrat;
+        private System.Windows.Forms.Button btRovnaSe;
+        private System.Windows.Forms.Button button1;
     }
 }
 

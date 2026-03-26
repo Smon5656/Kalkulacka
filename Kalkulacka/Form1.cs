@@ -12,12 +12,19 @@ namespace Kalkulacka
 {
     public partial class Form1 : Form
     {
+        //enum je nejaky vycet, ze co za operaci tam mam
+        enum enOperace { nic, plus, minus, krat, deleno, rovno};
+        enOperace menAktualneVybranaOperace;
+
         //-----------------------------------------------------------------------------------------------------------
         //konstruktor
         //-----------------------------------------------------------------------------------------------------------
         public Form1()
         {
             InitializeComponent();
+
+            //uvest do pocatecniho stavu
+            SmazatVse();
         }
 
 
@@ -38,10 +45,12 @@ namespace Kalkulacka
             //vymazani nuly
             if (txtDisplay.Text == "0") txtDisplay.Text = "";
 
+            //----------------------cviceni--------------------------------------
             //pridavam 1 do toho textboxu
             //txtDisplay.Text = txtDisplay.Text + "1"; //mohu pouzit i +=
             //je to pricitani do toho text boxu
             //vsichni povinne psat komentare
+            //-------------------------------------------------------------------
 
             // pridani cisla na display
             txtDisplay.Text = txtDisplay.Text + MojeTlacitko.Text;
@@ -54,7 +63,33 @@ namespace Kalkulacka
         private void btSmazat_Click(object sender, EventArgs e)
         {
             //prepsani veskereho textu na disp na 0
+            SmazatVse();
+        }
+
+        //-------------------------------------------------
+        //funkce na vraceni kalkulacky do pocatecniho stavu
+        //-------------------------------------------------
+        private void SmazatVse()
+        {
+            //vymazat udaje
             txtDisplay.Text = "0";
+
+            //nastavim timto kalkulacku do pocatecniho stavu
+
+            //jsem v operaci nic u tyhle funkce
+            //u teto vybrane mat. operace tam proste nic v displeji nechci
+            menAktualneVybranaOperace = enOperace.nic;
+        }
+
+        private void btOperace_Click(object sender, EventArgs e)
+        {
+            //resim, ktere tlacitko to zavolalo
+            Button MojeTlacitko;
+            MojeTlacitko = (Button)sender;
+
+            //pokud text na mem tlacitku odpovida +, udelej tohle
+            if (MojeTlacitko.Text == "+")
+                menAktualneVybranaOperace = enOperace.plus;
         }
     }
 }
