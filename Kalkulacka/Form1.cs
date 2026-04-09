@@ -88,8 +88,31 @@ namespace Kalkulacka
             MojeTlacitko = (Button)sender;
 
             //pokud text na mem tlacitku odpovida +, udelej tohle
-            if (MojeTlacitko.Text == "+")
-                menAktualneVybranaOperace = enOperace.plus;
+            //if (MojeTlacitko.Text == "+")
+                //menAktualneVybranaOperace = enOperace.plus;
+            //ja tam nechci psat milion if podminek
+                //udelam switch case
+                    //je to lepsi vykonnostne
+
+                //break je tam proto, ze nechci, aby se udelaly vsechny
+                    //by to zacalo pokracovat dal
+            
+            //timhle vyberu operaci
+            switch (MojeTlacitko.Text)
+            {
+                case "+":
+                    menAktualneVybranaOperace = enOperace.plus;
+                    break; //vyskoc z bloku ven
+                case "-":
+                    menAktualneVybranaOperace = enOperace.minus;
+                    break;
+                case "*":
+                    menAktualneVybranaOperace = enOperace.krat;
+                    break;
+                case "/":
+                    menAktualneVybranaOperace = enOperace.deleno;
+                    break;
+            }
         }
     }
 }
