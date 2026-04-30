@@ -13,8 +13,11 @@ namespace Kalkulacka
     public partial class Form1 : Form
     {
         //enum je nejaky vycet, ze co za operaci tam mam
-        enum enOperace { nic, plus, minus, krat, deleno, rovno};
+        enum enOperace { nic, plus, minus, krat, deleno, rovno };
         enOperace menAktualneVybranaOperace;
+        bool mblVybranaOperace;
+
+        double mdblCislo1, mdblCislo2, mdblVysledek;
 
         //-----------------------------------------------------------------------------------------------------------
         //konstruktor
@@ -51,6 +54,13 @@ namespace Kalkulacka
             //je to pricitani do toho text boxu
             //vsichni povinne psat komentare
             //-------------------------------------------------------------------
+
+            //vymazat jestliže právě byla vybraná operace 
+            if (mblVybranaOperace == true)
+            {
+                mblVybranaOperace = false;
+                txtDisplay.Text = "";
+            }
 
             // pridani cisla na display
             txtDisplay.Text = txtDisplay.Text + MojeTlacitko.Text;
@@ -89,14 +99,17 @@ namespace Kalkulacka
 
             //pokud text na mem tlacitku odpovida +, udelej tohle
             //if (MojeTlacitko.Text == "+")
-                //menAktualneVybranaOperace = enOperace.plus;
+            //menAktualneVybranaOperace = enOperace.plus;
             //ja tam nechci psat milion if podminek
-                //udelam switch case
-                    //je to lepsi vykonnostne
+            //udelam switch case
+            //je to lepsi vykonnostne
 
-                //break je tam proto, ze nechci, aby se udelaly vsechny
-                    //by to zacalo pokracovat dal
-            
+            //break je tam proto, ze nechci, aby se udelaly vsechny
+            //by to zacalo pokracovat dal
+
+            //zaznamenat, že jsme právě stiskli operaci
+            mblVybranaOperace = true;
+
             //timhle vyberu operaci
             switch (MojeTlacitko.Text)
             {
@@ -112,6 +125,36 @@ namespace Kalkulacka
                 case "/":
                     menAktualneVybranaOperace = enOperace.deleno;
                     break;
+            }
+
+            // zaznamenat čísla na display
+            mdblCislo1 = mdblCislo2;
+            mdblCislo2 = Convert.ToDouble(txtDisplay.Text);
+
+            //operace rovno = vypočítat
+            if (MojeTlacitko.Text == "=")
+            {
+                //provést operaci
+                switch (menAktualneVybranaOperace)
+                {
+                    case enOperace.plus:
+                        mdblVysledek = mdblCislo1 + mdblCislo2;
+                        break;
+
+                    case enOperace.minus:
+                        mdblVysledek = mdblCislo1 - mdblCislo2;
+                        break;
+
+                    case enOperace.krat:
+                        mdblVysledek = mdblCislo1 * mdblCislo2;
+                        break;
+
+                    case enOperace.deleno:
+                        mdblVysledek = mdblCislo1 / mdblCislo2;
+                        break;
+                }
+                //vypsat na display
+                txtDisplay.Text = mdblVysledek.ToString();
             }
         }
     }
